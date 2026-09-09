@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Urban Strike: SWAT Ops — sitio web
 
-## Getting Started
+Página de presentación del juego **Urban Strike: SWAT Ops**, un run & gun 2D hecho en Godot 4.4.
+El contenido (estadísticas, enemigos, jefes, niveles y notas técnicas) está sacado del GDD del proyecto.
 
-First, run the development server:
+Construida con **Next.js 16** (App Router, Turbopack), **React 19** y **Tailwind CSS 4**.
+
+## Detalles de implementación
+
+- Los sprites de personajes son las **hojas originales del juego**, animadas en CSS con `steps()`
+  a partir de los tamaños de frame reales de las escenas `.tscn` (`app/lib/data.ts`).
+- El fondo del hero usa las cinco capas de parallax nocturno del juego, cada una a su velocidad.
+- La tipografía de los títulos es `antilles.ttf`, la misma que usa el HUD del juego,
+  cargada con `next/font/local`.
+- El logo alimenta también el favicon (`app/icon.png`), el icono de iOS (`app/apple-icon.png`)
+  y la imagen para redes sociales (`app/opengraph-image.png`).
+
+## Desarrollo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de producción
+npm run start    # sirve el build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Despliegue en Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El proyecto no necesita ninguna variable de entorno para funcionar.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crea el repositorio en GitHub y súbelo:
 
-## Learn More
+   ```bash
+   git remote add origin https://github.com/<tu-usuario>/urbanstrike.git
+   git push -u origin main
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. En [vercel.com/new](https://vercel.com/new), importa el repositorio.
+   Vercel detecta Next.js automáticamente: no hay que tocar el comando de build
+   (`next build`), el directorio de salida ni el framework preset.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Pulsa **Deploy**. A partir de ahí, cada push a `main` genera un despliegue de producción
+   y cada rama o pull request genera una preview.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Variable opcional
 
-## Deploy on Vercel
+| Variable               | Para qué sirve                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL` | URL canónica del sitio (por ejemplo un dominio propio) para las etiquetas Open Graph y de Twitter. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Si no la defines, en Vercel se usa automáticamente el dominio de producción del proyecto
+(`VERCEL_PROJECT_PRODUCTION_URL`) y en local `http://localhost:3000`.
