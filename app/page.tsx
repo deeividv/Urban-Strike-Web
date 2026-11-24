@@ -92,6 +92,32 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
 
+        {/* ---------------- TRÁILER ---------------- */}
+        <Section
+          id="trailer"
+          eyebrow="Tráiler oficial"
+          title="Noventa segundos de operativo"
+          lead="Mira Urban Strike: SWAT Ops en acción antes de descargarlo."
+        >
+          <div className="relative border border-line bg-panel-2/60 p-2 sm:p-3">
+            <span className="absolute -top-px left-6 h-1 w-24 bg-amber" aria-hidden />
+            <video
+              className="block aspect-video w-full bg-void"
+              controls
+              playsInline
+              preload="none"
+              poster="/video/trailer-poster.jpg"
+            >
+              <source src="/video/trailer.mp4" type="video/mp4" />
+              Tu navegador no puede reproducir vídeo.{" "}
+              <a href="/video/trailer.mp4" className="text-amber underline">
+                Descarga el tráiler
+              </a>
+              .
+            </video>
+          </div>
+        </Section>
+
         {/* ---------------- OPERATIVO ---------------- */}
         <Section
           id="operativo"

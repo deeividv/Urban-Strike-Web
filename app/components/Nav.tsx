@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { DOWNLOAD_URL, DownloadButton } from "@/app/components/DownloadButton";
 
 const SECTIONS = [
+  { id: "trailer", label: "Tráiler" },
   { id: "operativo", label: "Operativo" },
   { id: "combate", label: "Combate" },
   { id: "bestiario", label: "Bestiario" },
