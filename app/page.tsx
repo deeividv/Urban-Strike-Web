@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Bestiary } from "@/app/components/Bestiary";
+import { DownloadButton } from "@/app/components/DownloadButton";
 import { Hero } from "@/app/components/Hero";
 import { Nav } from "@/app/components/Nav";
 import { Sprite } from "@/app/components/Sprite";
@@ -341,6 +342,34 @@ export default function Home() {
             </div>
           </div>
         </Section>
+
+        {/* ---------------- DESCARGA ---------------- */}
+        <section
+          id="descargar"
+          className="scanlines relative overflow-hidden border-t border-line py-20 sm:py-28 grid-tactical"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(245,165,36,0.12),transparent_65%)]" />
+          <div className="relative mx-auto flex max-w-3xl flex-col items-center px-5 text-center">
+            <Sprite sheet={SPRITES.swatIdle} label="El operativo SWAT listo" scale={1.6} />
+            <p className="mt-6 text-xs font-semibold tracking-[0.28em] uppercase text-amber">
+              Descarga gratuita
+            </p>
+            <h2 className="mt-3 font-display text-4xl leading-[1.08] text-bone sm:text-5xl">
+              La ciudad te necesita, operativo
+            </h2>
+            <p className="mt-4 max-w-xl leading-relaxed text-ash">
+              Descarga Urban Strike: SWAT Ops para Windows y juega los tres niveles de principio a
+              fin.
+            </p>
+            <div className="mt-9">
+              <DownloadButton />
+            </div>
+            <p className="mt-5 text-xs text-ash/80">
+              Si Windows muestra un aviso de SmartScreen, pulsa «Más información» y luego «Ejecutar
+              de todas formas».
+            </p>
+          </div>
+        </section>
       </main>
 
       <footer className="border-t border-line bg-panel/40 py-10">

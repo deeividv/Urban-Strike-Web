@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { DOWNLOAD_URL, DownloadButton } from "@/app/components/DownloadButton";
 
 const SECTIONS = [
   { id: "operativo", label: "Operativo" },
@@ -61,12 +62,9 @@ export function Nav() {
               {s.label}
             </a>
           ))}
-          <a
-            href="#zonas"
-            className="ml-2 border border-amber/70 bg-amber/10 px-4 py-2 font-display text-base tracking-wide text-amber transition-colors hover:bg-amber hover:text-void"
-          >
-            3 NIVELES
-          </a>
+          <span className="ml-2">
+            <DownloadButton size="sm" />
+          </span>
         </nav>
 
         <button
@@ -92,6 +90,12 @@ export function Nav() {
               {s.label}
             </a>
           ))}
+          <a
+            href={DOWNLOAD_URL}
+            className="my-3 block bg-amber py-3 text-center font-display text-lg tracking-wide text-void"
+          >
+            DESCARGAR JUEGO
+          </a>
         </nav>
       )}
     </header>

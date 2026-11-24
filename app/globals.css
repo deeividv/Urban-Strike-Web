@@ -139,3 +139,45 @@ body {
   .sky-layer { animation: none; }
   .float-y, .alert-pulse { animation: none; }
 }
+
+/* ---------- Botón de descarga ---------- */
+.download-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Destello que cruza el botón */
+.download-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: download-shine 3.2s ease-in-out infinite;
+}
+
+@keyframes download-shine {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+.download-glow {
+  filter: drop-shadow(0 0 0 rgba(245, 165, 36, 0));
+  animation: download-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes download-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(245, 165, 36, 0.25)); }
+  50% { filter: drop-shadow(0 0 22px rgba(245, 165, 36, 0.6)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-btn::before, .download-glow { animation: none; }
+}

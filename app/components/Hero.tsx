@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { DownloadButton } from "@/app/components/DownloadButton";
 import { Sprite } from "@/app/components/Sprite";
 import { SPEC, SPRITES } from "@/app/lib/data";
 import logo from "@/public/logo.png";
@@ -61,10 +62,11 @@ export function Hero() {
           final de cada nivel.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <DownloadButton />
           <a
             href="#bestiario"
-            className="clip-corner bg-amber px-7 py-3.5 font-display text-xl tracking-wide text-void transition-colors hover:bg-amber-soft"
+            className="clip-corner border border-line bg-panel/80 px-7 py-3.5 font-display text-xl tracking-wide text-bone transition-colors hover:border-amber/60 hover:text-amber"
           >
             VER EL BESTIARIO
           </a>
